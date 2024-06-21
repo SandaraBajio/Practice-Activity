@@ -94,3 +94,34 @@ int main()
    delete[] array; 
    return 0;
 }
+
+//3
+#include <iostream>
+#include <cmath>
+
+struct Circle {
+    float radius;
+};
+
+float calculateCircumference(float radius) {
+    return 2 * M_PI * radius;
+}
+float calculateArea(float radius) {
+    return M_PI * radius * radius;
+}
+int main() {
+    using namespace std;
+    
+    Circle circle1;
+    
+    cout << "Enter radius: ";
+    cin >> circle1.radius;
+
+    float circumference = calculateCircumference(circle1.radius);
+    float area = calculateArea(circle1.radius);
+    
+    cout << "Circumference: " << circumference << endl;
+    cout << "Area: " << area << endl;
+    
+    return 0;
+}
