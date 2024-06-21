@@ -1,0 +1,96 @@
+//Bajio, Sandara B.
+//CS-1302
+
+//#1
+#include <iostream>
+
+using namespace std;
+
+int findMax(int array[], int size)
+{
+    int max_value = array[0];
+
+    for (int i=0; i < size; i++)
+    {
+        if (array [i] > max_value)
+        {
+            max_value = array[i];
+        }
+    }
+    return max_value;
+}
+
+int main()
+{
+    int size;
+    cout << "Enter size of array: ";
+    cin >> size;
+
+    int array[size];
+    for (int i = 0; i < size; i++)
+    {
+        cout << "Enter element " << i+1 << ": ";
+        cin>> array[i];
+    }
+    int max_value = findMax(array, size);
+    cout << "Maximum element: " << max_value ;
+    return 0;
+}
+
+//2
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int rowsize;
+    int columnsize;
+    int totalrow = 0;
+    
+    cout << "Row size: ";
+    cin >> rowsize;
+    
+    cout << "Column size: ";
+    cin >> columnsize;
+
+    int** array = new int*[rowsize];
+    for (int i = 0; i < rowsize; ++i)
+    {
+        array[i] = new int[columnsize];
+    }
+   for (int i= 0; i < rowsize; ++i) 
+   {
+       for (int j = 0; j < columnsize; ++j)
+       {
+           cout << "R" << i + 1 << "C" << j + 1 << ": ";
+           cin >> array[i][j];
+       }
+   }
+   for (int i= 0; i < rowsize; ++i)
+    {
+       for (int j = 0; j < columnsize; ++j){
+           cout <<array [i][j] << " ";
+       }
+       cout << endl;
+    }
+   
+   int total = 0;
+   for (int i = 0; i < rowsize; ++i)
+   {
+       int totalrow = 0;
+       for (int j = 0; j < columnsize; ++j)
+       {
+           totalrow+= array [i][j];
+       }
+       total += totalrow * (i+1);
+   }
+   
+   cout << "Total: " << total << endl;
+   
+   for (int i=0; i<totalrow; ++i) {
+       delete[] array[i];
+   }
+   delete[] array; 
+   return 0;
+}
